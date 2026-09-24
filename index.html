@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مكتبة ألعاب PS4</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#030b16;
+    color:#fff;
+}
+header{
+    background:#061426;
+    border-bottom:1px solid #087cff;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#fff;
+    white-space:nowrap;
+}
+.logo span{color:#1687ff}
+nav{
+    display:flex;
+    gap:25px;
+    flex:1;
+}
+nav a{
+    color:#cbd8e8;
+    text-decoration:none;
+}
+nav a:hover{color:#1687ff}
+
+.search{
+    background:#10243d;
+    border:1px solid #244667;
+    border-radius:25px;
+    padding:10px 18px;
+    color:white;
+    width:250px;
+    outline:none;
+}
+
+.hero{
+    margin:25px auto;
+    width:90%;
+    min-height:330px;
+    border-radius:15px;
+    padding:55px;
+    display:flex;
+    align-items:center;
+    background:
+      radial-gradient(circle at 75% 50%,#1264c8 0%,transparent 35%),
+      linear-gradient(120deg,#06172d,#03101f);
+    border:1px solid #145fa8;
+    box-shadow:0 0 35px #006cff22;
+}
+.hero h1{
+    font-size:52px;
+    margin:0 0 15px;
+}
+.hero h1 span{color:#1687ff}
+.hero p{
+    color:#c6d5e8;
+    font-size:18px;
+}
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:13px 25px;
+    background:#087cff;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+.section-title{
+    font-size:26px;
+    margin:35px 0 20px;
+}
+.games{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+.card{
+    background:#07182c;
+    border:1px solid #173957;
+    border-radius:10px;
+    overflow:hidden;
+    transition:.25s;
+}
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#1687ff;
+    box-shadow:0 8px 25px #006cff33;
+}
+.cover{
+    height:230px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      linear-gradient(145deg,#07356d,#0a1424);
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
+    padding:15px;
+}
+.info{padding:13px}
+.info h3{
+    margin:0 0 8px;
+    font-size:17px;
+}
+.meta{
+    color:#8fa8c1;
+    font-size:13px;
+    line-height:1.8;
+}
+.tag{
+    display:inline-block;
+    margin-top:8px;
+    background:#0b64bd;
+    padding:4px 9px;
+    border-radius:5px;
+    font-size:12px;
+}
+.details{
+    display:block;
+    text-align:center;
+    background:#0b2139;
+    color:#55aaff;
+    padding:9px;
+    margin-top:10px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+.category{
+    background:#091c32;
+    border:1px solid #173957;
+    padding:20px 10px;
+    border-radius:10px;
+    text-align:center;
+    color:#d9e7f5;
+}
+.category:hover{
+    border-color:#1687ff;
+    color:#1687ff;
+}
+
+footer{
+    margin-top:60px;
+    padding:30px;
+    text-align:center;
+    background:#020914;
+    border-top:1px solid #123452;
+    color:#71879e;
+}
+
+@media(max-width:1000px){
+    .games{grid-template-columns:repeat(3,1fr)}
+    .categories{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:650px){
+    header{flex-wrap:wrap}
+    nav{
+        order:3;
+        width:100%;
+        justify-content:space-between;
+        gap:10px;
+    }
+    .search{width:100%}
+    .hero{
+        padding:30px 20px;
+        min-height:280px;
+    }
+    .hero h1{font-size:36px}
+    .games{grid-template-columns:repeat(2,1fr);gap:10px}
+    .cover{height:190px;font-size:18px}
+    .categories{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🎮 <span>PS4</span> GAMES</div>
+
+    <nav>
+        <a href="#">الرئيسية</a>
+        <a href="#games">الألعاب</a>
+        <a href="#categories">التصنيفات</a>
+        <a href="#new">الأحدث</a>
+    </nav>
+
+    <input class="search" id="search"
+           type="search"
+           placeholder="ابحث عن لعبة...">
+</header>
+
+<section class="hero">
+    <div>
+        <h1>مكتبة ألعاب <span>PS4</span></h1>
+        <p>اكتشف ألعاب PlayStation 4 في مكان واحد</p>
+        <a class="btn" href="#games">🎮 تصفح الألعاب</a>
+    </div>
+</section>
+
+<main class="container">
+
+<h2 class="section-title" id="games">🔥 أحدث الألعاب</h2>
+
+<div class="games" id="gameList">
+
+<div class="card">
+<div class="cover">Elden Ring</div>
+<div class="info">
+<h3>Elden Ring</h3>
+<div class="meta">CUSA: CUSA18723<br>الإصدار: 1.08<br>الحجم: 46.5 GB</div>
+<span class="tag">RPG</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">God of War Ragnarök</div>
+<div class="info">
+<h3>God of War Ragnarök</h3>
+<div class="meta">CUSA: CUSA34386<br>الإصدار: 2.01<br>الحجم: 116 GB</div>
+<span class="tag">أكشن</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">Horizon Forbidden West</div>
+<div class="info">
+<h3>Horizon Forbidden West</h3>
+<div class="meta">CUSA: CUSA24705<br>الإصدار: 1.26<br>الحجم: 98.7 GB</div>
+<span class="tag">مغامرات</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">Gran Turismo 7</div>
+<div class="info">
+<h3>Gran Turismo 7</h3>
+<div class="meta">CUSA: CUSA24767<br>الإصدار: 1.31<br>الحجم: 107 GB</div>
+<span class="tag">سباقات</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">The Last of Us Part I</div>
+<div class="info">
+<h3>The Last of Us Part I</h3>
+<div class="meta">CUSA: CUSA26123<br>الإصدار: 1.16<br>الحجم: 79 GB</div>
+<span class="tag">مغامرات</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">Grand Theft Auto V</div>
+<div class="info">
+<h3>Grand Theft Auto V</h3>
+<div class="meta">CUSA: CUSA00419<br>الإصدار: 1.41<br>الحجم: 82 GB</div>
+<span class="tag">أكشن</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">Red Dead Redemption 2</div>
+<div class="info">
+<h3>Red Dead Redemption 2</h3>
+<div class="meta">CUSA: CUSA08519<br>الإصدار: 1.31<br>الحجم: 120 GB</div>
+<span class="tag">مغامرات</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+<div class="card">
+<div class="cover">Spider-Man</div>
+<div class="info">
+<h3>Marvel's Spider-Man</h3>
+<div class="meta">CUSA: CUSA11995<br>الإصدار: 1.19<br>الحجم: 53 GB</div>
+<span class="tag">أكشن</span>
+<a class="details" href="#">تفاصيل اللعبة</a>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title" id="categories">🗂️ التصنيفات</h2>
+
+<div class="categories">
+<div class="category">⚔️ أكشن</div>
+<div class="category">🗺️ مغامرات</div>
+<div class="category">👻 رعب</div>
+<div class="category">⚔️ RPG</div>
+<div class="category">🏎️ سباقات</div>
+<div class="category">⚽ رياضة</div>
+<div class="category">🔫 تصويب</div>
+<div class="category">🎮 ألعاب جماعية</div>
+</div>
+
+</main>
+
+<footer>
+    🎮 مكتبة ألعاب PS4
+    <br><br>
+    جميع المعلومات الخاصة بالألعاب محفوظة لأصحابها.
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("input", function(){
+    const value = this.value.toLowerCase();
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+
+        if(text.includes(value)){
+            card.style.display = "";
+        }else{
+            card.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
